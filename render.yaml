@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: metamax-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: FRONTEND_ORIGIN
+        sync: false
+      - key: PAGESPEED_API_KEY
+        sync: false
+      - key: PAGESPEED_TIMEOUT_MS
+        value: "60000"
+      - key: RATE_LIMIT_MAX
+        value: "20"
